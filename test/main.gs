@@ -1,3 +1,5 @@
+%include backpack/pengine/pengine
+
 costumes "blank.svg";
 
 onflag {
