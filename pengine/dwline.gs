@@ -91,7 +91,7 @@ proc fill_dw_line_perfect Circle c1, Circle c2 {
                 x: 0, 
                 y: 0, 
                 r: ir
-            }, Pt2D{
+            }, Node{
                 x: $c2.x - $c1.x,
                 y: $c2.y - $c1.y
             });
@@ -117,19 +117,19 @@ proc fill_dw_line_perfect Circle c1, Circle c2 {
             PEN_DU;
 
             fill_quad 
-                Pt2D {
+                Node {
                     x: $c1.x + ($c1.r - 0.5) * ps.x1,
                     y: $c1.y + ($c1.r - 0.5) * ps.y1
                 },
-                Pt2D {
+                Node {
                     x: $c2.x + ($c2.r - 0.5) * ps.x1,
                     y: $c2.y + ($c2.r - 0.5) * ps.y1
                 },
-                Pt2D {
+                Node {
                     x: $c2.x + ($c2.r - 0.5) * ps.x2,
                     y: $c2.y + ($c2.r - 0.5) * ps.y2
                 },
-                Pt2D {
+                Node {
                     x: $c1.x + ($c1.r - 0.5) * ps.x2,
                     y: $c1.y + ($c1.r - 0.5) * ps.y2
                 };

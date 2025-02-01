@@ -1,6 +1,6 @@
 # Azex 3D adapted for quad by @ggenije(2) on scratch
 # https://scratch.mit.edu/projects/882039002
-proc fill_quad Pt2D p0, Pt2D p1, Pt2D p2, Pt2D p3 {
+proc fill_quad Node p0, Node p1, Node p2, Node p3 {
     # Since you can't have local vars across functions, I'm just using these very long-named global ones
     _pengine_quad_fill_B = sqrt(($p2.x - $p0.x) * ($p2.x - $p0.x) + ($p2.y - $p0.y) * ($p2.y - $p0.y));
     _pengine_quad_fill_A = sqrt(($p1.x - $p2.x) * ($p1.x - $p2.x) + ($p1.y - $p2.y) * ($p1.y - $p2.y));

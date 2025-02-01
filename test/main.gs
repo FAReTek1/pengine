@@ -18,7 +18,7 @@ proc setup{
 proc tick{
     erase_all;
     RESET_POS;
-    draw_crescent circle_from_pos(my_pos()), Circle{
+    fill_dw_line_perfect circle_from_pos(my_pos()), Circle{
         x: mouse_x(), y: mouse_y(), r: 50
-    }, 30;
+    };
 }
