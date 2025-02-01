@@ -1,15 +1,7 @@
 %include backpack/pengine/pengine
 
-%define DRAW_LIST(lst)              \
-    local i = 1;                    \
-    repeat length lst{              \
-        goto lst[i].x, lst[i].y;    \
-        pen_down;                   \
-        i++;                        \
-    }                               \
-    goto lst[1].x, lst[1].y;        \
-    pen_up;                         \
-    
+
+
 costumes "blank.svg";
 
 onflag {
@@ -35,8 +27,11 @@ proc tick{
     add Node{x: 100, y: 100} to cnc_ngon;
     add Node{x: 100, y: 0} to cnc_ngon;
 
+    set_pen_color "#0000FF";
+    FILL_LIST(cnc_ngon);
     Circle c = circle_from_pos(my_pos());
 
+    set_pen_color "#FF0000";
     circle_ngon_clip c;
     render_cnc;
 
