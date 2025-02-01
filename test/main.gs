@@ -18,5 +18,7 @@ proc setup{
 proc tick{
     erase_all;
     RESET_POS;
-    fill_cone my_pos(), (node_dir(node_position(), node_mouse()) - 90) % 360;
+    fill_crescent circle_from_pos(my_pos()), Circle{
+        x: mouse_x(), y: mouse_y(), r: 50
+    }, 30;
 }
