@@ -4,8 +4,8 @@
 ################################################################
 
 proc _cnc_segment_by_coords Node p1, Node p2 {
-    local d1 = ptdir($p1, circle_pt(cnc_circle)) % 360;
-    local d2 = ptdir($p2, circle_pt(cnc_circle)) % 360;
+    local d1 = node_dir($p1, circle_pt(cnc_circle)) % 360;
+    local d2 = node_dir($p2, circle_pt(cnc_circle)) % 360;
 
     if d1 != d2 {
         if _cnc_flip == 1 {

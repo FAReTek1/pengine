@@ -1,5 +1,4 @@
 %include backpack/pengine/pengine
-costumes "backpack/pengine/pengine/aw/*.svg";
 
 costumes "blank.svg";
 
@@ -12,12 +11,8 @@ func circle_from_pos(pos p) Circle {
     return Circle{x: $p.x, y: $p.y, r: $p.s};
 }
 
-func ptdir(Node p1, Node p2) {
-    return DIR($p1.x, $p1.y, $p2.x, $p2.y);
-}
 
 proc setup{
-    RESET_POS;
     hide;
 }
 
@@ -27,7 +22,7 @@ proc tick{
 
     delete cnc_ngon;
     add Node{x: 0, y: 0} to cnc_ngon;
-    add Node{x: -240, y: 74} to cnc_ngon;
+    add node_mouse() to cnc_ngon;
     add Node{x: 100, y: 100} to cnc_ngon;
 
     Circle c = circle_from_pos(my_pos());
