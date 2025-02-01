@@ -1,4 +1,4 @@
-%include backpack/pengine/pengine
+%include backpack/pengine/pengine.gs
 
 costumes "blank.svg";
 
@@ -18,7 +18,5 @@ proc setup{
 proc tick{
     erase_all;
     RESET_POS;
-    fill_dw_line_perfect circle_from_pos(my_pos()), Circle{
-        x: mouse_x(), y: mouse_y(), r: 50
-    };
+    STLF node_from_pos(mouse_pos()), node_from_pos(my_pos()), 50, "1", "2";
 }

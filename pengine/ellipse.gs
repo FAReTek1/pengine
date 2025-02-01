@@ -1,6 +1,6 @@
 
 # Based on https://scratch.mit.edu/projects/578538613 by @griefercube on scratch
-proc fill_ellipse pos p, Stretch s, res {
+proc fill_ellipse pos p, WxH s, res {
     pen_up;
     if abs($s.w) == abs($s.h) {
         goto $p.x, $p.y;

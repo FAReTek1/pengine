@@ -1,4 +1,3 @@
-
 proc draw_line Line l {
     # We only check x1
     if $l.x1 != "NaN"{
@@ -8,4 +7,3 @@ proc draw_line Line l {
         pen_up;
     }
 }
-
