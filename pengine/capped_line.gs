@@ -37,10 +37,10 @@ proc fill_capped_line x1, y1, x2, y2, th, trans {
 
         set_ghost_effect $trans;
         stamp;
-        # set_pen_transparency 100;  # This block doesn't exist yet in goboscript ;-;
+        set_pen_transparency 100;  # This block doesn't exist yet in goboscript ;-;
         set_pen_size $th;
         pen_down;
-        # set_pen_transparency $trans;  # This block doesn't exist yet in goboscript ;-;
+        set_pen_transparency $trans;  # This block doesn't exist yet in goboscript ;-;
         
         turn_right 180;
         pos_size_hack $x1 + (dst - $th / 2) * sin(direction()),

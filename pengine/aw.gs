@@ -1,3 +1,5 @@
+costumes "backpack/pengine/pengine/aw/*.svg";
+
 proc fill_aw pos pos, hole {
     # Note: this filler is a bit stuttery and doesn't work sometimes
     if $hole < 0 {

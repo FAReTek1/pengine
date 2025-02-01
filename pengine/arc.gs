@@ -1,6 +1,7 @@
 costumes "backpack/pengine/pengine/arc/*.svg";
 
 proc fill_arc pos pos, ext, hole {
+    # you may need to mod $ext by 360
     if $ext > 0.703125 and $hole < 0.9999999 {
         goto_pos $pos;
 

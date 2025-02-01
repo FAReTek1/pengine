@@ -15,7 +15,7 @@ proc fill_outline res, th {
 }
 
 proc stamp_shadow dx, dy, ghost {
-    change_xy dx, dy; change_ghost_effect $ghost;
+    change_xy $dx, $dy; change_ghost_effect $ghost;
     stamp;
-    change_xy -dx, -dy; change_ghost_effect -$ghost;
+    change_xy -$dx, -$dy; change_ghost_effect -$ghost;
 }
