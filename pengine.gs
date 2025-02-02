@@ -1,6 +1,6 @@
 # dependencies
 
-%include backpack/spritecontrol/spritecontrol
+%include backpack/cosfx/cosfx
 
 ################################################################
 
