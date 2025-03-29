@@ -9,7 +9,7 @@ proc STLF Node p1, Node p2, th, style, cap {
             y: ($p1.y + $p2.y) / 2,
             s: 100,
             d: DIR($p2.x, $p2.y, $p1.x, $p1.y)
-        }, Stretch {
+        }, WxH {
             w: dist - $th,
             h: $th
         };
@@ -33,7 +33,7 @@ proc STLF Node p1, Node p2, th, style, cap {
             y: ($p1.y + $p2.y) / 2,
             s: 100,
             d: DIR($p2.x, $p2.y, $p1.x, $p1.y)
-        }, Stretch {
+        }, WxH {
             w: dist,
             h: $th
         };
