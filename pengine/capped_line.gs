@@ -2,22 +2,24 @@
 costumes "backpack/pengine/pengine/capped_line/*.svg";
 
 # Uh, why doesn't this take a line as input?
-proc fill_capped_line x1, y1, x2, y2, th, trans {
-    local dst = DIST($x1, $y1, $x2, $y2);
+proc fill_capped_line Line l, th, trans {
+    local dst = DIST($l.x1, $l.y1, $l.x2, $l.y2);
     if dst < $th {
         local mul = ($th / 2) / dst; 
 
         # tail recursion is ok
-        local mdx = ($x1 + $x2) / 2;
-        local mdy = ($y1 + $y2) / 2;
+        local mdx = ($l.x1 + $l.x2) / 2;
+        local mdy = ($l.y1 + $l.y2) / 2;
 
-        local dx = $x1 - $x2;
-        local dy = $y1 - $y2;
+        local dx = $l.x1 - $l.x2;
+        local dy = $l.y1 - $l.y2;
 
-        fill_capped_line mdx - dy * mul,
-                         mdy + dx * mul,
-                         mdx + dy * mul,
-                         mdy - dx * mul,
+        fill_capped_line Line{
+                            x1: mdx - dy * mul,
+                            y1:mdy + dx * mul,
+                            x2:mdx + dy * mul,
+                            y2:mdy - dx * mul
+                         },
                          dst,
                          $trans;
         
@@ -28,11 +30,11 @@ proc fill_capped_line x1, y1, x2, y2, th, trans {
             local cost = "shapefill pencap opaq";
         }
 
-        point_in_direction DIR($x1, $y1, $x2, $y2);
+        point_in_direction DIR($l.x1, $l.y1, $l.x2, $l.y2);
 
         switch_costume cost;
-        pos_size_hack $x2 + (dst - $th / 2) * sin(direction()),
-                      $y2 + (dst - $th / 2) * cos(direction()),
+        pos_size_hack $l.x2 + (dst - $th / 2) * sin(direction()),
+                      $l.y2 + (dst - $th / 2) * cos(direction()),
                       $th;
 
         set_ghost_effect $trans;
@@ -43,8 +45,8 @@ proc fill_capped_line x1, y1, x2, y2, th, trans {
         set_pen_transparency $trans;  # This block doesn't exist yet in goboscript ;-;
         
         turn_right 180;
-        pos_size_hack $x1 + (dst - $th / 2) * sin(direction()),
-                      $y1 + (dst - $th / 2) * cos(direction()),
+        pos_size_hack $l.x1 + (dst - $th / 2) * sin(direction()),
+                      $l.y1 + (dst - $th / 2) * cos(direction()),
                       $th;
         pen_up;
         stamp;

@@ -14,6 +14,7 @@ proc fill_outline res, th {
     }
 }
 
+# deprecate this????
 proc stamp_shadow dx, dy, ghost {
     change_xy $dx, $dy; change_ghost_effect $ghost;
     stamp;
