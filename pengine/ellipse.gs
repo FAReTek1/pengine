@@ -1,4 +1,3 @@
-
 # Based on https://scratch.mit.edu/projects/578538613 by @griefercube on scratch
 proc fill_ellipse pos p, WxH s, res {
     pen_up;

@@ -62,7 +62,6 @@ proc fill_miter Line l1, Line l2, th {
                 y2: $l1.y1
             }, $th; 
     }
-
 }
 # Fill miter using arc instead of tri
 # Probably not very efficient math
