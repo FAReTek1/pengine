@@ -2,6 +2,8 @@
 
 %include backpack/cosfx/cosfx
 
+%include backpack/color/color
+
 ################################################################
 
 %include backpack/pengine/pengine/arc
