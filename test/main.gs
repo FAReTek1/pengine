@@ -20,9 +20,9 @@ proc setup{
 }
 
 proc tick{
-    set_ps_color_HEX "FF00FF";
+    set_ps_color_HSVA cHSVA{h: 75, s: 100, v: 100, a: 100 - 50 * mouse_down()};
 
     erase_all;
     RESET_POS;
-    draw_arc my_pos(), mouse_x() * 2, 0.5, 10;
+    fill_aw my_pos(), mouse_x() *2 /240;
 }

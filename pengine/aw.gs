@@ -9,28 +9,28 @@ proc fill_aw pos pos, hole {
         goto_pos $pos;
         if $hole * $pos.s == 0 {
             switch_costume "shapefill AW0";
-            stamp;
+            cstamp;
         } else {
             if $hole < 0.5 {
                 local i = floor(7 + ln($hole) / 0.69314718056);
                 switch_costume "shapefill AW" & i;
-                stamp;
+                cstamp;
                 if $hole == 0.25 { # Removes the small gap created at 0.25 hole
                     size_hack $hole * $pos.s * 2.04;
                 } else {
                     size_hack $hole * $pos.s * antiln(0.6931471805599453 * (6 - i));
                 }
-                stamp;
+                cstamp;
             } else {
                 local i = ceil(5 + ln(2 - 2 * $hole) / -0.53479999674);
                 switch_costume "shapefill AW" & i;
-                stamp;
+                cstamp;
                 if $hole != 0.5{
                     size_hack $pos.s + (
                         antiln(0.6931471805599453 * (4 - i)) * 
                         (2 * antiln(-0.5347999967394081 * (4.89 - i)) * ($pos.s * ($hole - 1)) + $pos.s)
                     ) / 0.707106781187;
-                    stamp;
+                    cstamp;
                 }
             }
         }
