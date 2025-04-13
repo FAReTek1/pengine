@@ -1,22 +1,19 @@
-%define PEN_DU pen_down; pen_up;
+%define PEN_DU pen_down; pen_up
 
 
 # -- small utilities --
-proc fill_outline res, th {
-    local angle = 0;
+proc fill_outline th, res {
+    local angle = direction(); 
+    # this way, when the sprite rotates, the outline's circle of stamps rotates as well, 
+    # making it look more natural
     repeat $res {
-        change_xy $th * sin(angle),
-                  $th * cos(angle);
-        stamp;
-        change_xy -$th * sin(angle),
-                  -$th * cos(angle);
+        stamp_offset Node{x: $th * sin(angle), y: $th * cos(angle)};
         angle += 360 / $res;
     }
 }
 
-# deprecate this????
-proc stamp_shadow dx, dy, ghost {
-    change_xy $dx, $dy; change_ghost_effect $ghost;
-    stamp;
-    change_xy -$dx, -$dy; change_ghost_effect -$ghost;
+proc stamp_offset Node dn, {
+    change_xy $dn.x, $dn.y;
+    cstamp;
+    change_xy -$dn.x, -$dn.y;
 }

@@ -1,6 +1,7 @@
 %include backpack/pengine/pengine.gs
 
-costumes "blank.svg";
+costumes "blank.svg", "circle.svg";
+hide;
 
 onflag {
     setup;
@@ -20,9 +21,11 @@ proc setup{
 }
 
 proc tick{
-    set_ps_color_HSVA cHSVA{h: 75, s: 100, v: 100, a: 100 - 50 * mouse_down()};
-
+    switch_costume "circle";
     erase_all;
     RESET_POS;
-    fill_aw my_pos(), mouse_x() *2 /240;
+    set_ps_color_HSVA cHSVA{h: 0, s: 0, v: 0, a: 100 - 50 * mouse_down()};
+    fill_outline 10, 8;
+    set_ps_color_HSVA cHSVA{h: 75, s: 100, v: 100, a: 100 - 50 * mouse_down()};
+    cstamp;
 }
