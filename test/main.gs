@@ -1,7 +1,6 @@
 %include backpack/pengine/pengine.gs
 
-costumes "blank.svg", "circle.svg";
-hide;
+costumes "blank.svg";
 
 onflag {
     setup;
@@ -22,11 +21,8 @@ proc setup{
 
 proc tick{
     erase_all;
-    RESET_POS;
-    pos p = my_pos();
-    switch_costume "blank";
-    size_hack "Infinity";
+    set_ps_color_HEX "0FF0FF";
 
-    set_ps_color_HSVA cHSVA{h: 90, s: 75, v: 75, a: 100 - 50 * mouse_down()};
-    fill_segment p, mouse_x() * 2;
+    RESET_POS;
+    STLF node_from_pos(mouse_pos()), node_from_pos(my_pos()), 50, "stlf1", "stlf1";
 }

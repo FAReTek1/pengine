@@ -14,18 +14,18 @@ proc STLF Node p1, Node p2, th, style, cap {
             h: $th
         };
         switch_costume $style;
-        stamp;
+        cstamp;
 
         set_fisheye_effect 0;
         size_hack $th;
         switch_costume $cap;
         pos_hack $p1.x + 0.5 * $th * sin(direction()),
                  $p1.y + 0.5 * $th * cos(direction());
-        stamp;
+        cstamp;
 
         pos_hack $p2.x - 0.5 * $th * sin(direction()),
                  $p2.y - 0.5 * $th * cos(direction());
-        stamp;
+        cstamp;
 
     } else {
         goto_pos_stretch pos{
@@ -38,6 +38,6 @@ proc STLF Node p1, Node p2, th, style, cap {
             h: $th
         };
         switch_costume $cap;
-        stamp;
+        cstamp;
     }
 }
