@@ -20,7 +20,9 @@ proc setup{
 }
 
 proc tick{
+    set_ps_color_HEX "FF00FF";
+
     erase_all;
     RESET_POS;
-    STLF node_from_pos(mouse_pos()), node_from_pos(my_pos()), 50, "stlf4", "stlf5";
+    fill_arc my_pos(), 90, 0.5;
 }

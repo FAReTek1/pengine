@@ -11,11 +11,11 @@ proc fill_arc pos pos, ext, hole {
         if $hole > 0.01 {
             set_fisheye_effect -69.314718056 / ln($hole) - 100;
         }
-        stamp;
+        cstamp;
         i = 360 * antiln(0.6931471805599453 * i);
         if abs(i - $ext) > 0.0000000000001 {
             turn_right $ext - i;
-            stamp;
+            cstamp;
         }
         set_fisheye_effect 0;
     }
