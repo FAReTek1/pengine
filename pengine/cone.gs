@@ -19,10 +19,12 @@ proc fill_cone pos p, ext {
         };
 
         local i = ceil(log(360 / $ext) / 0.301);
-        switch_costume "shapefill cone" & i;
-        stamp;
+        if i < 6{
+            switch_costume "shapefill cone" & i;
+            cstamp;
 
-        turn_right $ext - 360 / antilog(0.301 * i);
-        stamp;
+            turn_right $ext - 360 / antilog(0.301 * i);
+            cstamp;
+        }
     }
 }

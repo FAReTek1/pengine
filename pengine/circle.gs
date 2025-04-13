@@ -1,4 +1,3 @@
-
 proc fill_circle Circle c {
     # literally paint a dot
     goto $c.x, $c.y;

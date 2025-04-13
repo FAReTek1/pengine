@@ -21,10 +21,12 @@ proc setup{
 }
 
 proc tick{
-    switch_costume "circle";
     erase_all;
     RESET_POS;
+    pos p = my_pos();
+    switch_costume "blank";
+    size_hack "Infinity";
+
     set_ps_color_HSVA cHSVA{h: 90, s: 75, v: 75, a: 100 - 50 * mouse_down()};
-    fill_capped_line Line{x1: x_position(), y1: y_position(), x2: mouse_x(), y2: mouse_y()}, 20, 
-                     50 * mouse_down();
+    fill_cone p, mouse_x() * 2;
 }

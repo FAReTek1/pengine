@@ -28,7 +28,7 @@ proc render_cnc {
     if _cnc_buffer1[1].x != "OUT POLY" {
         if length _cnc_buffer1 == 0 {
             fill_circle cnc_circle;
-
+            
         } else {
             local Circle c = cnc_circle;
             local i = 2;
