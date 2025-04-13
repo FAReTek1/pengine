@@ -45,3 +45,5 @@ proc _pengine_quad_fill_intern ina1, inb1, inc, ind, ine1, inf1, inr1, a, b, c, 
         _pengine_quad_fill_A *= _pengine_quad_fill_C;
     }
 }
+
+# todo: potentially implement https://scratch.mit.edu/projects/1128076882/ ?
