@@ -1,6 +1,6 @@
 %include backpack/pengine/pengine.gs
 
-costumes "blank.svg";
+costumes "blank.svg", "sttf*.svg";
 
 onflag {
     setup;
@@ -20,9 +20,9 @@ proc setup{
 }
 
 proc tick{
-    erase_all;
+    erase_all;RESET_POS;
     set_ps_color_HEX "0FF0FF";
 
-    RESET_POS;
-    STLF node_from_pos(mouse_pos()), node_from_pos(my_pos()), 50, "stlf1", "stlf1";
+    switch_costume "sttf1";
+    cSTTF x_position(), y_position(), mouse_x(), mouse_y(), 100, 100, costume_number();
 }
