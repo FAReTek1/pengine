@@ -1,7 +1,5 @@
-
 costumes "backpack/pengine/pengine/capped_line/*.svg";
 
-# Uh, why doesn't this take a line as input?
 proc fill_capped_line Line l, th, trans {
     local dst = DIST($l.x1, $l.y1, $l.x2, $l.y2);
     if dst < $th {
@@ -16,9 +14,9 @@ proc fill_capped_line Line l, th, trans {
 
         fill_capped_line Line{
                             x1: mdx - dy * mul,
-                            y1:mdy + dx * mul,
-                            x2:mdx + dy * mul,
-                            y2:mdy - dx * mul
+                            y1: mdy + dx * mul,
+                            x2: mdx + dy * mul,
+                            y2: mdy - dx * mul
                          },
                          dst,
                          $trans;
@@ -38,17 +36,17 @@ proc fill_capped_line Line l, th, trans {
                       $th;
 
         set_ghost_effect $trans;
-        stamp;
-        set_pen_transparency 100;  # This block doesn't exist yet in goboscript ;-;
+        cstamp;
+        set_pen_transparency 100;
         set_pen_size $th;
         pen_down;
-        set_pen_transparency $trans;  # This block doesn't exist yet in goboscript ;-;
+        set_pen_transparency $trans;
         
         turn_right 180;
         pos_size_hack $l.x1 + (dst - $th / 2) * sin(direction()),
                       $l.y1 + (dst - $th / 2) * cos(direction()),
                       $th;
         pen_up;
-        stamp;
+        cstamp;
     }
 }
