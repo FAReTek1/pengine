@@ -24,5 +24,5 @@ proc tick{
 
     erase_all;
     RESET_POS;
-    fill_arc my_pos(), 90, 0.5;
+    draw_arc my_pos(), mouse_x() * 2, 0.5, 10;
 }

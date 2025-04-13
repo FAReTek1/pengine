@@ -21,6 +21,63 @@ proc fill_arc pos pos, ext, hole {
     }
 }
 
+proc draw_arc pos p, ext, hole, res {
+    if abs($ext) < 360 {
+        local angle = $p.d;
+
+        goto $p.x + $p.s * sin(angle),
+             $p.y + $p.s * cos(angle);
+        pen_down;
+
+        repeat $res {
+            angle += $ext / $res;
+            goto $p.x + $p.s * sin(angle),
+                 $p.y + $p.s * cos(angle);
+        }
+
+        goto $p.x + $p.s * sin(angle) * $hole,
+             $p.y + $p.s * cos(angle) * $hole;
+
+        repeat $res {
+            angle -= $ext / $res;
+            goto $p.x + $p.s * sin(angle) * $hole,
+                 $p.y + $p.s * cos(angle) * $hole;
+        }
+
+        goto $p.x + $p.s * sin($p.d),
+             $p.y + $p.s * cos($p.d);
+            
+        pen_up;
+
+    } else {
+        # draw 2 circles
+        local angle = $p.d;
+        
+        goto $p.x + $p.s * sin(angle),
+             $p.y + $p.s * cos(angle);
+        pen_down;
+
+        repeat $res {
+            angle += 360 / $res;
+            goto $p.x + $p.s * sin(angle),
+                 $p.y + $p.s * cos(angle);
+        }
+
+        pen_up;
+
+        goto $p.x + $p.s * sin(angle) * $hole,
+             $p.y + $p.s * cos(angle) * $hole;
+        pen_down;
+
+        repeat $res {
+            angle -= 360 / $res;
+            goto $p.x + $p.s * sin(angle) * $hole,
+                 $p.y + $p.s * cos(angle) * $hole;
+        }
+        pen_up;
+    }
+}
+
 proc draw_arc_edge pos p, ext, res {
     goto $p.x + $p.s * sin($p.d), 
          $p.y + $p.s * cos($p.d);
@@ -41,7 +98,7 @@ proc fill_arc_starting_at pos p, ext, hole, center_rot, overall_size {
     fill_arc pos{
         x: $p.x - $p.s * sin($p.d),
         y: $p.y - $p.s * cos($p.d),
-        s: $p.s * $overall_size,
+        s: $p.s * $overall_size * 2,
         d: $p.d + $center_rot - $ext
     }, $ext, $hole;
 }
@@ -49,7 +106,7 @@ proc fill_arc_ending_at pos p, ext, hole, center_rot, overall_size {
     fill_arc pos{
         x: $p.x - $p.s * sin($p.d),
         y: $p.y - $p.s * cos($p.d),
-        s: $p.s * $overall_size,
+        s: $p.s * $overall_size * 2,
         d: $p.d + $center_rot
     }, $ext, $hole;
 }
