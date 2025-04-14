@@ -58,8 +58,8 @@ proc draw_capped_line Line l, th {
 
     if coef == "Infinity" {stop_this_script;}
 
-    vx  *= coef;
-    vy  *= coef;
+    vx *= coef;
+    vy *= coef;
 
     goto $l.x1 + vy, $l.y1 - vx;
     pen_down;
