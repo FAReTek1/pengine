@@ -20,9 +20,13 @@ proc setup{
 }
 
 proc tick{
-    erase_all;RESET_POS;
-    set_ps_color_HEX "0FF0FF";
+    erase_all;
+    RESET_POS;
 
-    switch_costume "sttf1";
-    cSTTF x_position(), y_position(), mouse_x(), mouse_y(), 100, 100, costume_number();
+    set_ps_color_HSVA cHSVA{h: 50, s: 100, v: 100, a: 100};
+    fill_capped_line Line{x1: mouse_x(), y1: mouse_y(), x2: -50, y2: 100}, 50, 0;
+
+    set_pen_size 1;
+    set_ps_color_HSVA cHSVA{h: 0, s: 100, v: 100, a: 50};
+    draw_capped_line Line{x1: mouse_x(), y1: mouse_y(), x2: -50, y2: 100}, 50;
 }

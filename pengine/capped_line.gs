@@ -50,3 +50,22 @@ proc fill_capped_line Line l, th, trans {
         cstamp;
     }
 }
+
+proc draw_capped_line Line l, th {
+    local vx = line_dx($l);
+    local vy = line_dy($l);
+    local coef = $th / (2 * sqrt(vx * vx + vy * vy));
+
+    if coef == "Infinity" {stop_this_script;}
+
+    vx  *= coef;
+    vy  *= coef;
+
+    goto $l.x1 + vy, $l.y1 - vx;
+    pen_down;
+    goto $l.x1 - vy, $l.y1 + vx;
+    goto $l.x2 - vy, $l.y2 + vx;
+    goto $l.x2 + vy, $l.y2 - vx;
+    goto $l.x1 + vy, $l.y1 - vx;
+    pen_up;
+}
